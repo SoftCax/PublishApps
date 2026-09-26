@@ -1,0 +1,67 @@
+﻿┌─────────────────────────────────────────────────────────────────────┐
+│                      PRESENTACIÓN (UI)                              │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  BtnGenerar_Click (Formulario/Ribbon)                         │  │
+│  │  - Solo orquesta, no tiene lógica de negocio                  │  │
+│  │  - Maneja ProgressBar y mensajes                              │  │
+│  └───────────────────────────┬───────────────────────────────────┘  │
+└──────────────────────────────┼──────────────────────────────────────┘
+                               │
+┌──────────────────────────────┼──────────────────────────────────────┐
+│                    CAPA DE SERVICIOS                                │
+│  ┌───────────────────────────┴───────────────────────────────────┐  │
+│  │  SIREOrquestador (Orquestador)                                │  │
+│  │  - Coordina el flujo completo                                 │  │
+│  │  - Valida reglas de negocio                                   │  │
+│  └────────┬──────────────────┬──────────────────┬────────────────┘  │
+│           │                  │                  │                   │
+│  ┌────────┴────────┐  ┌──────┴──────┐  ┌───────┴──────────────┐  │
+│  │ TablaService    │  │SIREValidador│  │  SIRESunatService    │  │
+│  │ - Info tabla    │  │ - Columnas  │  │  - EnviarCP          │  │
+│  │ - Mapeo cols    │  │ - Nombre    │  │  - ExcluirCP         │  │
+│  │ - Clasificar    │  │ - Reglas    │  │  - IncluirCP         │  │
+│  └─────────────────┘  └─────────────┘  └──────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+                               │
+┌──────────────────────────────┼──────────────────────────────────────┐
+│                      CAPA DE DOMINIO                                │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  Modelos                                                      │  │
+│  │  ├── InfoTabla          (datos de la tabla Excel)             │  │
+│  │  ├── MapeoColumnasSIRE  (índices por encabezado)              │  │
+│  │  ├── ClasificacionFilas (filas por color)                     │  │
+│  │  ├── CPEExcluir         (datos para excluir)                  │  │
+│  │  └── TipoOperacionSIRE  (enum: Reemplazar, Agregar, etc.)    │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  Enums                                                         │  │
+│  │  ├── TipoOperacionSIRE                                         │  │
+│  │  └── ColorFilaSIRE                                             │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+ESTRUCTURA DE ARCHIVOS
+
+Solucion/
+│
+├── Dominio/
+│   ├── InfoTabla.vb                  ← Datos de la tabla Excel
+│   ├── MapeoColumnasSIRE.vb          ← Índices de columnas por encabezado
+│   ├── ClasificacionFilas.vb         ← Resultado de clasificar filas
+│   ├── CPEExcluir.vb                 ← Modelo para excluir CPE
+│   ├── TipoOperacionSIRE.vb          ← Enum de operaciones
+│   └── ColorFilaSIRE.vb              ← Enum de colores
+│
+├── Servicios/
+│   ├── TablaService.vb               ← Lógica de tablas Excel
+│   ├── SIREValidador.vb              ← Validaciones de negocio
+│   ├── SIRESunatService.vb           ← Comunicación con SUNAT
+│   └── SIREOrquestador.vb            ← Orquestador principal
+│
+├── UI/
+│   └── BtnGenerar_Click.vb           ← Evento del botón (código mínimo)
+│
+└── Utilidades/
+    └── ExcelHelper.vb                ← Funciones auxiliares Excel
