@@ -1,0 +1,206 @@
+﻿┌─────────────────────────────────────────────────────────────────────┐
+│                      CAPA DE PRESENTACIÓN                           │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  Consultar_SIREAsync (Formulario/Ribbon)                      │  │
+│  │  - Recibe parámetros del usuario                              │  │
+│  │  - Inyecta ProgressBar y Label                                │  │
+│  └───────────────────────────┬───────────────────────────────────┘  │
+└──────────────────────────────┼──────────────────────────────────────┘
+                               │
+┌──────────────────────────────┼──────────────────────────────────────┐
+│                      CAPA DE ORQUESTACIÓN                           │
+│  ┌───────────────────────────┴───────────────────────────────────┐  │
+│  │  ConsultarSIREService (Orquestador)                           │  │
+│  │  - Coordina el flujo completo                                 │  │
+│  │  - No conoce detalles de implementación                       │  │
+│  │  - Maneja transacciones y rollback                            │  │
+│  └────────┬──────────────────┬──────────────────┬────────────────┘  │
+└───────────┼──────────────────┼──────────────────┼───────────────────┘
+            │                  │                  │
+┌───────────┼──────────────────┼──────────────────┼───────────────────┐
+│           │     CAPA DE SERVICIOS DE NEGOCIO      │                  │
+│  ┌────────┴────────┐  ┌───────┴───────┐  ┌───────┴──────────────┐  │
+│  │  SunatService   │  │ ArchivoService│  │   UIService         │  │
+│  │  - API SUNAT    │  │ - ZIP/CSV/TXT │  │   - ProgressBar     │  │
+│  │  - Tickets      │  │ - Conversiones│  │   - Mensajes        │  │
+│  │  - Descargas    │  │ - Limpieza    │  │   - Logs            │  │
+│  └─────────────────┘  └───────────────┘  └──────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+            │
+┌───────────┼─────────────────────────────────────────────────────────┐
+│           │     CAPA DE TRANSFORMACIÓN (NUEVA ARQUITECTURA)         │
+│  ┌────────┴──────────────────────────────────────────────────────┐  │
+│  │  FormatoService                                                │  │
+│  │  - Selecciona el formato adecuado                              │  │
+│  │  - Puente entre servicios y transformación                     │  │
+│  └────────┬──────────────────────────────────────────────────────┘  │
+│           │                                                         │
+│  ┌────────┴──────────────────────────────────────────────────────┐  │
+│  │  ProcesadorTXT                                                 │  │
+│  │  - Lee archivo TXT                                             │  │
+│  │  - Crea RegistroSUNAT por línea                                │  │
+│  │  - Aplica transformaciones                                     │  │
+│  │  - Escribe en Excel                                            │  │
+│  └────────┬──────────────────────────────────────────────────────┘  │
+│           │                                                         │
+│  ┌────────┴──────────────────────────────────────────────────────┐  │
+│  │  FormatoBase (Abstract)                                        │  │
+│  │  - Define contrato para formatos                               │  │
+│  │  - Obtiene metadatos (fechas, números, orden)                  │  │
+│  └────────┬──────────────────────────────────────────────────────┘  │
+│           │                                                         │
+│  ┌────────┴──────────────────────────────────────────────────────┐  │
+│  │  Formatos Concretos                                            │  │
+│  │  ├── SIRE_RVIE    ├── SIRE_RCE                                 │  │
+│  │  ├── PLE_RVIE     ├── PLE_RCE                                  │  │
+│  │  ├── SinFormato_RVIE └── SinFormato_RCE                        │  │
+│  │  └── FormatoPersonalizado (extensible)                         │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  DefinicionColumna                                             │  │
+│  │  - Encabezado, Tipo, ObtenerValor, Totalizar, Orden            │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  RegistroSUNAT (Modelo de Dominio)                             │  │
+│  │  ├── RegistroSUNAT_Base (Abstract)                             │  │
+│  │  ├── RegistroRVIE (Propiedades tipadas)                        │  │
+│  │  └── RegistroRCE (Propiedades tipadas)                         │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │  CampoSUNAT                                                     │  │
+│  │  ├── CamposRVIE (Posiciones oficiales SUNAT)                   │  │
+│  │  └── CamposRCE (Posiciones oficiales SUNAT)                    │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+
+
+USUARIO (Excel)
+    │
+    ▼
+Consultar_SIREAsync(RUC, RCid, periodo, "SIRE", ...)
+    │
+    ▼
+ConsultarSIREService.Ejecutar()
+    │
+    ├─► UIService.Inicializar(11)
+    │
+    ├─► SunatService.ObtenerArchivoTXT()
+    │   ├─► ¿Nuevo ticket?
+    │   │   ├─► GenerarTicketPrpuesta()
+    │   │   ├─► Capturar_TiketSire()
+    │   │   └─► EsperarConsultarTiketAsync()
+    │   ├─► ¿Ticket existente?
+    │   │   └─► RespuestaConsulTiket()
+    │   └─► DescargarYDescomprimir()
+    │       ├─► DescargarArchivo()
+    │       └─► ArchivoService.GuardarYDescomprimir()
+    │           ├─► File.WriteAllBytes() [ZIP]
+    │           ├─► Descomprimir() [ZIP→TXT]
+    │           └─► ConvertirCsvATxt() [CSV→TXT]
+    │
+    ├─► ArchivoService.EsperarArchivo(rutaTxt)
+    │
+    ├─► FormatoService.AplicarFormato()
+    │   ├─► ObtenerFormato("SIRE", RCid)
+    │   │   └─► New SIRE_RVIE() o New SIRE_RCE()
+    │   │
+    │   └─► ProcesadorTXT.Procesar()
+    │       ├─► File.ReadAllLines(rutaTxt)
+    │       ├─► Por cada línea:
+    │       │   ├─► Split("|")
+    │       │   ├─► New RegistroRVIE(vals) o New RegistroRCE(vals)
+    │       │   │   ├─► GetTexto(pos) → Cache
+    │       │   │   ├─► GetNumero(pos) → Cache
+    │       │   │   └─► GetFechaOADate(pos) → Cache
+    │       │   └─► Por cada columna del formato:
+    │       │       └─► Columna.ObtenerValor(registro)
+    │       │           Ej: Function(r) r.ComprobanteCompleto
+    │       │
+    │       ├─► Range.Value2 = data (ESCRITURA MASIVA)
+    │       ├─► AplicarFormatos() (dd/mm/yyyy, #,##0.00, @)
+    │       ├─► LimpiarFechasInvalidas() (evitar 00/01/1900)
+    │       ├─► AplicarTotales() (SUM)
+    │       └─► AplicarOrdenamiento() (Sort)
+    │
+    ├─► ArchivoService.EliminarArchivoSeguro() [ZIP, TXT]
+    │
+    └─► UIService.Ocultar()
+
+
+
+
+
+
+                        IProcesadorDatos (Interfaz)
+                            │
+                    ProcesadorBase (Abstract)
+                    ┌───────────┴───────────┐
+                    │                       │
+            ProcesadorTXT            ProcesadorJSON
+                    │                       │
+                    └───────────┬───────────┘
+                                │
+                        ProcesadorCSV (Futuro)
+                        ProcesadorBD (Futuro)
+
+
+
+
+
+
+
+                     RegistroSUNAT_Base (Abstract)
+                    ┌───────────┴───────────┐
+                    │                       │
+            RegistroRVIE              RegistroRVIE_JSON
+            RegistroRCE               RegistroRCE_JSON
+            (desde TXT)               (desde JSON)
+
+
+
+Solucion/
+│
+├── Nucleo/                          (Sin cambios)
+│   ├── TipoDato.vb                  ← Sin cambios
+│   ├── TipoRegistro.vb              ← Sin cambios
+│   ├── CampoSUNAT.vb                ← Sin cambios
+│   ├── CamposRVIE.vb                ← Sin cambios
+│   ├── CamposRCE.vb                 ← Sin cambios
+│   ├── RegistroSUNAT_Base.vb        ← 🔄 Constructor acepta Nothing
+│   ├── RegistroRVIE.vb              ← Sin cambios
+│   ├── RegistroRCE.vb               ← Sin cambios
+│   ├── DefinicionColumna.vb         ← Sin cambios
+│   └── FormatoBase.vb               ← Sin cambios
+│
+├── Datos/                           (🆕 Nueva carpeta)
+│   ├── RegistroRVIE_JSON.vb         ← 🆕 Lee desde JObject
+│   └── RegistroRCE_JSON.vb          ← 🆕 Lee desde JObject
+│
+├── Formatos/                        (Sin cambios)
+│   ├── SIRE_RVIE.vb                 ← Sin cambios
+│   ├── SIRE_RCE.vb                  ← Sin cambios
+│   ├── PLE_RVIE.vb                  ← Sin cambios
+│   └── PLE_RCE.vb                   ← Sin cambios
+│
+├── Procesadores/                    (🆕 Reorganizado)
+│   ├── IProcesadorDatos.vb          ← 🆕 Interfaz común
+│   ├── ProcesadorBase.vb            ← 🆕 Lógica común Excel
+│   ├── ProcesadorTXT.vb             ← 🔄 Simplificado
+│   └── ProcesadorJSON.vb            ← 🆕 Nuevo procesador
+│
+├── Infraestructura/                 (Sin cambios mayores)
+│   ├── FormatoService.vb            ← 🔄 Añade AplicarFormatoJSON()
+│   ├── ArchivoService.vb            ← Sin cambios
+│   └── UIService.vb                 ← Sin cambios
+│
+├── Servicios/
+│   ├── SunatService.vb              ← Sin cambios
+│   └── ConsultarSIREService.vb      ← 🔄 Añade fallback JSON
+│
+└── Presentacion/
+    └── Consultar_SIREAsync.vb       ← Sin cambios (ya usa ConsultarSIREService)
