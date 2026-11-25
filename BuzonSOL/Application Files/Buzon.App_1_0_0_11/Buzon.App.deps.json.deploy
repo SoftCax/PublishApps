@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x64": {
-      "Buzon.App/1.0.0.8": {
+      "Buzon.App/1.0.0.11": {
         "dependencies": {
           "Buzon.Datos": "1.0.0",
           "Buzon.Dominio": "1.0.0",
@@ -223,7 +223,7 @@
         "runtime": {
           "Buzon.Datos.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.8"
+            "fileVersion": "1.0.0.11"
           }
         }
       },
@@ -231,7 +231,7 @@
         "runtime": {
           "Buzon.Dominio.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.8"
+            "fileVersion": "1.0.0.11"
           }
         }
       },
@@ -247,7 +247,7 @@
         "runtime": {
           "Buzon.Motor.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.8"
+            "fileVersion": "1.0.0.11"
           }
         }
       },
@@ -259,14 +259,14 @@
         "runtime": {
           "Buzon.Sunat.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.8"
+            "fileVersion": "1.0.0.11"
           }
         }
       }
     }
   },
   "libraries": {
-    "Buzon.App/1.0.0.8": {
+    "Buzon.App/1.0.0.11": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

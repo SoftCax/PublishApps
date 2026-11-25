@@ -3,6 +3,10 @@
 Cada publicación agrega una sección al inicio. La aplicación muestra las versiones
 posteriores a la instalada cuando el usuario pulsa **Buscar actualizaciones**.
 
+## 1.0.0.11 — 25/11/2026
+- Acceso directo **Buzón SOL** en el escritorio y en el menú Inicio, con el icono de la aplicación.
+- Se crea automáticamente al abrir la aplicación; si se borra, vuelve a crearse la próxima vez.
+
 ## 1.0.0.10 — 24/11/2026
 - El motor se reanuda solo al abrir el aplicativo si estaba activo cuando se cerró o apagó el equipo.
 - Botón **Buscar actualizaciones** en Acerca de, con el detalle de las mejoras de cada versión.

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Buzon.App.exe" version="1.0.0.8" publicKeyToken="43c5f697f9d8129a" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Buzon.App.exe" version="1.0.0.11" publicKeyToken="43c5f697f9d8129a" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Resources\buzon-sol-icono-128.ico" xmlns="urn:schemas-microsoft-com:asm.v1">Monitor de Buzón SOL SUNAT</description>
   <application />
   <entryPoint>
@@ -54,22 +54,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Buzon.App.deps.json" size="15667">
+  <file name="Buzon.App.deps.json" size="15673">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YWwUalsNRLUpOkyeDf+nnl370H44lr9IM53bytsDpLY=</dsig:DigestValue>
+      <dsig:DigestValue>+QXWGZanUkacEZojtnu0j3Y8J76JSVuZR8xDLjLp6ag=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Buzon.App.dll" size="1972144">
+  <file name="Buzon.App.dll" size="1984432">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Of9I//uQ4nOfv6c1T46rl66vEMjdyhqHPqm0zPZvZ8U=</dsig:DigestValue>
+      <dsig:DigestValue>Lfniiukuoz7p226VVKF1RLoMCAg85F8ioDtCQ8tTWWc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Buzon.App.dll.config" size="1336">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>L0WB+6+LT6OrH++0YnaedryosC1Dr8ImXD965qU67YE=</dsig:DigestValue>
+      <dsig:DigestValue>wkZqSbsSRfXEcRc/Q3goM9HJw+SuEJDYnWN51JYGXkE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Buzon.App.runtimeconfig.json" size="515">
@@ -105,7 +105,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>0GL3gKS8aWxiVnyruT/fCd/puT7bKd22FNKQJsr6tII=</dsig:DigestValue>
+      <dsig:DigestValue>SygzAd3lwEG26Kh4e1q8PNP4ZkHnygySYrOPyjFR7xs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Buzon.Dominio.dll" size="28672">
@@ -114,16 +114,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mhmXWA7jpmQpAhBr260lRlQCWdAbhXVlspZlLYhsUV8=</dsig:DigestValue>
+      <dsig:DigestValue>u5zEQkGZPGBXnsB8sdGFP7U4GX4UGdNd7VS+SoCda1w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Buzon.Motor.dll" size="208384">
+  <file name="Buzon.Motor.dll" size="209920">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>P4t9xWqvsh72KjQTIOnTpY4wTevNtZP18N3mpGu/dco=</dsig:DigestValue>
+      <dsig:DigestValue>pjuQ8URYQbHxgxffTadu/bloZflfdJ8jnJ7ovFdiniw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Buzon.Sunat.dll" size="49152">
@@ -132,7 +132,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>G4UnpqL31HmX6YiHObXjiEuaaOuJDbZoATaZqzlDfgk=</dsig:DigestValue>
+      <dsig:DigestValue>aAHWEruGe9RiVzGAMGYS6027HC19+YGqPtLgaxEzkwg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ClosedXML.dll" size="1692160">
@@ -342,4 +342,4 @@
       <dsig:DigestValue>lmkOmJqO7pfZPaBYqR6iqY9xXe3RXjslWFK8FyTKK7A=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=MIXERPC\Mixer" issuerKeyHash="74c7742ebd3c71e8476465f49671d997ad1473bb" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>XxTOv8XGQD5PCQJto+rd2e9aIMIl0mJj2b4poES6jaY=</DigestValue></Reference></SignedInfo><SignatureValue>xMuroCgl7ygO8ZiZtb5dsCQCFpQzSb4MwAgrcJX5rDGZRNRpmvpKGEvtXnlPcrqKOo1lRneqLG5DY+IrRtZ+9N6VQ5PE78Jl8hi7IChOPRcyXQ4QTaXulxpH0TYdIM7k1HJwJYjX76nNArAF+N9BZUuDSwI7M7HUZAIjzxBURsA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>yD6eqqITZvx8e2hcyvK7aZZbwYwKOzo/BPffD08f6fezY0r6fglGhPzID+dpPe70MQ0KQ5LyY3TV4o511uve0qVFTQpry3bJ908BhnJt4L8E8BUVCta0fuosbN7jj9WTkfRvV2Kg/4KjWN00MfdefEOd2FOMkW5uCl4gBmdKE20=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a68dba44a029bed96362d225c2205aefd9ddeaa36d02094f3e40c6c5bfce145f" Description="" Url=""><as:assemblyIdentity name="Buzon.App.exe" version="1.0.0.8" publicKeyToken="43c5f697f9d8129a" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MIXERPC\Mixer</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>LcYRvvXWgP6DzbVlE0wGo/CLUariiQaTINVk62f8y10=</DigestValue></Reference></SignedInfo><SignatureValue>jS+zYpDIdAPg+8/9D2UzCcw7QSz95D/u44N7GiKjIavsBY4QaDfd3fsan67WrXbnXNdWVP/nVgggdYOEoa3DA7mrrhZ2oWkMH+TAA0OzYd63Xtc3h2une4/GMRHR/1NhmvvzMub3pAwPIG6w5iOsliLAZe3RJDBKguUMEOL7tRo=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yD6eqqITZvx8e2hcyvK7aZZbwYwKOzo/BPffD08f6fezY0r6fglGhPzID+dpPe70MQ0KQ5LyY3TV4o511uve0qVFTQpry3bJ908BhnJt4L8E8BUVCta0fuosbN7jj9WTkfRvV2Kg/4KjWN00MfdefEOd2FOMkW5uCl4gBmdKE20=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQaPmQ/KYq3YxPyRJZcwFeFDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoATQBJAFgARQBSAFAAQwBcAE0AaQB4AGUAcjAeFw0yNjEwMTAwMTU1NDZaFw0yNzEwMTAwNzU1NDZaMCUxIzAhBgNVBAMeGgBNAEkAWABFAFIAUABDAFwATQBpAHgAZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIPp6qohNm/Hx7aFzK8rtpllvBjAo7Oj8E998PTx/p97NjSvp+CUaE/MgP52k97vQxDQpDkvJjdNXijnXW697SpUVNCmvLdsn3TwGGcm3gvwTwFRUK1rR+6ixs3uOP1ZOR9G9XYqD/gqNY3TQx9158Q53YU4yRbm4KXiAGZ0oTbQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBABbHcB88WyVC5ZIEF30CYTNQzU3GjtjI6KaZajniovoiKDuJrWvA0JOMQePSNfF7pTUiODtQm+OMftRZksbgG033F8o6K7DbAVNFnWu1QcATElHHk6jOzAREmOofgO46z5f+rwqu1R9Yhe8J6GuP/puH0VJzzGpG/r7gPOHiNOj/</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=MIXERPC\Mixer" issuerKeyHash="74c7742ebd3c71e8476465f49671d997ad1473bb" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>9cplfNy9EQmmTUAJFJ6Oym9/hWkDCvRVBC93mvPcYZQ=</DigestValue></Reference></SignedInfo><SignatureValue>O3e2f4HqnnYfHCBGP9/HzK8OZhOhMFNboAAqRuBT0I/GkN4u3qFDwqvd/GWPx1S8/pO6Dcu6w6R+GyvRLICCGYbecSL+s/2QOUZR3M3pwNc+t2+gE6vSK0MwXk4YWMUJqlyznEyMIPJtejp/KME5yeKnT4/uSUV+lQ9xgcGJ5Sc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>yD6eqqITZvx8e2hcyvK7aZZbwYwKOzo/BPffD08f6fezY0r6fglGhPzID+dpPe70MQ0KQ5LyY3TV4o511uve0qVFTQpry3bJ908BhnJt4L8E8BUVCta0fuosbN7jj9WTkfRvV2Kg/4KjWN00MfdefEOd2FOMkW5uCl4gBmdKE20=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="9461dcf39a772f0455f40a0369857f6fca8e9e1409404da60911bddc7c65caf5" Description="" Url=""><as:assemblyIdentity name="Buzon.App.exe" version="1.0.0.11" publicKeyToken="43c5f697f9d8129a" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MIXERPC\Mixer</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>txKtsHNREZoPto066w1FZIhFdbrEf6uv2IdivFvR4vU=</DigestValue></Reference></SignedInfo><SignatureValue>w2qITkaQpyR9cIKOYzzbY6VwmBHzx21uyoxwg6Lr9jjsJ4yBK3hg71Ahe5zlSC/lLaR2EgB6jBRjK3xpLzkujTGPKbjGg5E/1Xp19ZJFXoHE2Driv6r1X6OHEqiWKHWBGrUgk9EOJvzpdZDJTCRvm8lZ6vmL+dFZxLPK2pMCRNU=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yD6eqqITZvx8e2hcyvK7aZZbwYwKOzo/BPffD08f6fezY0r6fglGhPzID+dpPe70MQ0KQ5LyY3TV4o511uve0qVFTQpry3bJ908BhnJt4L8E8BUVCta0fuosbN7jj9WTkfRvV2Kg/4KjWN00MfdefEOd2FOMkW5uCl4gBmdKE20=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQaPmQ/KYq3YxPyRJZcwFeFDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoATQBJAFgARQBSAFAAQwBcAE0AaQB4AGUAcjAeFw0yNjEwMTAwMTU1NDZaFw0yNzEwMTAwNzU1NDZaMCUxIzAhBgNVBAMeGgBNAEkAWABFAFIAUABDAFwATQBpAHgAZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIPp6qohNm/Hx7aFzK8rtpllvBjAo7Oj8E998PTx/p97NjSvp+CUaE/MgP52k97vQxDQpDkvJjdNXijnXW697SpUVNCmvLdsn3TwGGcm3gvwTwFRUK1rR+6ixs3uOP1ZOR9G9XYqD/gqNY3TQx9158Q53YU4yRbm4KXiAGZ0oTbQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBABbHcB88WyVC5ZIEF30CYTNQzU3GjtjI6KaZajniovoiKDuJrWvA0JOMQePSNfF7pTUiODtQm+OMftRZksbgG033F8o6K7DbAVNFnWu1QcATElHHk6jOzAREmOofgO46z5f+rwqu1R9Yhe8J6GuP/puH0VJzzGpG/r7gPOHiNOj/</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
